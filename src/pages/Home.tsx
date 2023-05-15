@@ -24,15 +24,24 @@ const Home: FC = () => {
     fetchSmoothies();
   }, []);
 
+  const handleDelete = (id: number) => {
+    setSmoothies((prevSmoothies) => {
+      return prevSmoothies.filter((sm) => sm.id !== id);
+    });
+  };
+
   return (
     <div className="page home">
       {fetchError && <p>{fetchError}</p>}
       {smoothies && (
         <div className="smoothies">
-          {/* order-by buttons */}
           <div className="smoothie-grid">
             {smoothies.map((smoothie) => (
-              <SmoothieCard key={smoothie.id} smoothie={smoothie} />
+              <SmoothieCard
+                key={smoothie.id}
+                smoothie={smoothie}
+                onDelete={handleDelete}
+              />
             ))}
           </div>
         </div>
