@@ -1,10 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 
-export interface ISmoothie {
-  id: number;
+export interface IModifySmoothie {
   title: string;
   method: string;
   rating: number;
+}
+
+export interface ISmoothie extends IModifySmoothie {
+  id: number;
 }
 
 interface IDatabase {
@@ -12,8 +15,8 @@ interface IDatabase {
     Tables: {
       smoothies: {
         Row: ISmoothie;
-        Insert: {};
-        Update: {};
+        Insert: IModifySmoothie;
+        Update: IModifySmoothie;
       };
     };
   };

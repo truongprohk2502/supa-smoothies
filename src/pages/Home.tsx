@@ -11,6 +11,7 @@ const Home: FC = () => {
       const { data, error } = await supabase.from("smoothies").select();
 
       if (error) {
+        console.error(error);
         setFetchError("Could not fetch the smoothies");
         setSmoothies([]);
       }
