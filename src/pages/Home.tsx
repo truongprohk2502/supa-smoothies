@@ -32,12 +32,7 @@ const Home: FC = () => {
           {/* order-by buttons */}
           <div className="smoothie-grid">
             {smoothies.map((smoothie) => (
-              <SmoothieCard
-                key={smoothie.id}
-                title={smoothie.title}
-                method={smoothie.method}
-                rating={smoothie.rating}
-              />
+              <SmoothieCard key={smoothie.id} smoothie={smoothie} />
             ))}
           </div>
         </div>
